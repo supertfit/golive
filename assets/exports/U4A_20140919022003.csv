@@ -1,0 +1,5 @@
+ID,Name,Type,"QR Code","QR Code Link","Target Id","Target Type","Marker Photo",Video,"Created At"
+1,Animals,1,test,http://golive.loc/assets/qrcodes/animals.jpg,bb99ebdf23d848afabfd45bacc3d653a,1,http://golive.loc/assets/markers/animals.jpg,http://golive.loc/assets/markers/animals.mov,"2014-09-14 00:47:14"
+2,Sports,1,qkqh,http://golive.loc/assets/qrcodes/sports.jpg,6d470c80ab3d483fbb15ae6fdec8dce1,1,http://golive.loc/assets/markers/sports.jpg,http://golive.loc/assets/markers/sports.mov,"2014-09-14 00:47:14"
+8,Hey,1,K4Y6T,http://golive.loc/assets/qrcodes/87cd28ad2241d33a834181c32dbe0acd.png,9e963db5450745259128bb40f3f648ac,1,http://golive.loc/assets/markers/EU5HFr8K_20140917174351.png,http://golive.loc/assets/markers/CCFbCaPi_20140917174351.mov,"2014-09-17 22:43:55"
+9,"Tourst Card",2,9DZI2,http://golive.loc/assets/qrcodes/e3f6abdfcabd75262e23c067d02e3248.png,41cd63a7c7554cf7857f1fcb5b187399,1,http://golive.loc/assets/markers/Vl6iE64Q_20140918205244.png,http://golive.loc/assets/markers/NNPWaOt9_20140918205244.mov,"2014-09-19 01:52:49"

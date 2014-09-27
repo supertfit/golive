@@ -1,0 +1,4 @@
+ID,Name,"QR Code","QR Code Link","Target Id",Counter,"Target Type","Marker Photo",Video,"Created At"
+1,Animals1,test,http://golive.loc/assets/qrcodes/animals.jpg,bb99ebdf23d848afabfd45bacc3d653a,1,Cloud,http://golive.loc/assets/markers/animals.jpg,http://golive.loc/assets/videos/animals.mov,"2014-09-14 00:47:14"
+2,Sports,qkqh,http://golive.loc/assets/qrcodes/sports.jpg,6d470c80ab3d483fbb15ae6fdec8dce1,0,Cloud,http://golive.loc/assets/markers/sports.jpg,http://golive.loc/assets/videos/sports.mov,"2014-09-14 00:47:14"
+17,Music,Y7FGM,http://golive.loc/assets/qrcodes/b28060ec97aba871710c05f3d4329a9a.png,0f6d4a23fe324f99b9111de97712ee90,0,Cloud,http://golive.loc/assets/markers/OJu0Epqp_20140922070247.jpg,http://golive.loc/assets/videos/DnkMyIEU_20140922070247.mov,"2014-09-22 12:02:51"

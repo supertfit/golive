@@ -1,0 +1,9 @@
+"Unique ID","QR Code","QR Code Link",Note,"Card Category","Target ID",Metadata,"Target Type","Cover Photo Link","Video URL","Transaction ID","Transaction Date","Payment Method",Amount,"Promo Status","Postal Address","Postal Code","Receiptant City","Receiptant Country"
+5,11111,b1c177cc8e31cf1783b8c97b628f8146.png,1,Category,1,1,1,http://golive.loc/assets/markers/animals.jpg,http://golive.loc/assets/videos/Fr2omuth.mov,,,,,,1,1,1,1
+7,z0Hkz,a830ddc45a43b449bed3bda13bce2dc8.png,3,Tourist,f0b70d1981314e7dbdfb2c39eeef9202,,1,http://golive.loc/assets/markers/cover_hTPA_20140914172156.png,http://golive.loc/assets/videos/obi0ALLe.mov,,,,,,33,3,3,3
+9,test,animals.jpg,4,Category,bb99ebdf23d848afabfd45bacc3d653a,,2,http://golive.loc/assets/markers/animals.jpg,http://golive.loc/assets/videos/animals.mov,,,,,,4,4,4,4
+10,qkqh,sports.jpg,3,Category,6d470c80ab3d483fbb15ae6fdec8dce1,,2,http://golive.loc/assets/markers/sports.jpg,http://golive.loc/assets/videos/sports.mov,,,,,,33,3,3,3
+11,grCAW,6651c201138221feb6e51232cc20cb75.png,"Tear ",Custom,01b28b0ea570450f990a2b28ea754fc1,,1,http://golive.loc/assets/markers/cover_4p8YYTEG_20140915064527.jpg,http://golive.loc/assets/videos/aw2qhCNs_20140915064542.mov,,,,,,a,a,a,a
+12,f0CMf,5f4dc804654cc71fda5374043a20c95c.png,"Tear ",Category,6d470c80ab3d483fbb15ae6fdec8dce1,,2,http://golive.loc/assets/markers/sports.jpg,http://golive.loc/assets/videos/6b6jzmzI_20140915065224.mov,,,,,,a,a,a,a
+16,ZOCDM,465c0684d7559d06d06cf963809e39ea.png,Test,Custom,424e563a12cf4511add08972cdbee92b,,1,http://golive.loc/assets/markers/cover_p0HeOeVH_20140918055933.jpg,http://golive.loc/assets/videos/U4zPufzG_20140918055950.mov,,,,,,a,a,a,a
+17,8VNE4,d04364f854459e88e03fbb739fe3258d.png,Test,Custom,373c68aad24a4196a1a1476df26d9580,,1,http://golive.loc/assets/markers/cover_Ku036cUc_20140918060543.jpg,http://golive.loc/assets/videos/HRPABLK1_20140918060607.mov,,,,,,a,a,a,a

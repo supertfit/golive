@@ -1,0 +1,111 @@
+.areaBtnAdd {
+	margin-right: 10px;
+	margin-top: 3px;
+}
+button a{ color: #FFF; text-decoration: none; }
+button a:hover { color: #FFF; text-decoration: none; }
+
+@media only screen and (max-width: 1000px) {
+	table#tblCustomCardList td:nth-child(3), 
+	table#tblCustomCardList th:nth-child(3) {display: none;}
+	
+	table#tblUserList td:nth-child(6), 
+	table#tblUserList th:nth-child(6) {display: none;}
+	
+	table#tblTouristCardList td:nth-child(8),
+	table#tblTouristCardList th:nth-child(8) {display: none;}
+	
+	table#tblBuycreditList td:nth-child(5),
+	table#tblBuycreditList th:nth-child(5) {display: none;}	
+	
+}
+@media only screen and (max-width: 840px) {
+	table#tblCustomCardList td:nth-child(3), 
+	table#tblCustomCardList th:nth-child(3),	
+	table#tblCustomCardList td:nth-child(6), 
+	table#tblCustomCardList th:nth-child(6) {display: none;}
+	
+	table#tblCategoryList td:nth-child(1),
+	table#tblCategoryList th:nth-child(1),	
+	table#tblCategoryList td:nth-child(5),
+	table#tblCategoryList th:nth-child(5),
+	table#tblCategoryList td:nth-child(4),
+	table#tblCategoryList th:nth-child(4) {display: none;}	
+	
+	table#tblDealList td:nth-child(4), 
+	table#tblDealList th:nth-child(4),	
+	table#tblDealList td:nth-child(7), 
+	table#tblDealList th:nth-child(7) {display: none;}
+	
+	table#tblPromoList td:nth-child(6), 
+	table#tblPromoList th:nth-child(6),	
+	table#tblPromoList td:nth-child(7), 
+	table#tblPromoList th:nth-child(7) {display: none;}
+
+	table#tblTouristCardList td:nth-child(6),
+	table#tblTouristCardList th:nth-child(6),
+	table#tblTouristCardList td:nth-child(5),
+	table#tblTouristCardList th:nth-child(5),
+	table#tblTouristCardList td:nth-child(8),
+	table#tblTouristCardList th:nth-child(8) {display: none;}
+
+	table#tblBuycreditList td:nth-child(2),
+	table#tblBuycreditList th:nth-child(2),
+	table#tblBuycreditList td:nth-child(5),
+	table#tblBuycreditList th:nth-child(5) {display: none;}					
+}
+@media only screen and (max-width: 640px) {
+	table#tblCustomCardList td:nth-child(3), 
+	table#tblCustomCardList th:nth-child(3),
+	table#tblCustomCardList td:nth-child(5), 
+	table#tblCustomCardList th:nth-child(5),		
+	table#tblCustomCardList td:nth-child(6), 
+	table#tblCustomCardList th:nth-child(6) {display: none;}
+	table#tblCardList { font-size: 11px; }
+	
+	table#tblCategoryList td:nth-child(1),
+	table#tblCategoryList th:nth-child(1),	
+	table#tblCategoryList td:nth-child(4),
+	table#tblCategoryList th:nth-child(4),	
+	table#tblCategoryList td:nth-child(5), 
+	table#tblCategoryList th:nth-child(5) {display: none;}
+	table#tblCategoryList { font-size: 11px; }	
+	
+	table#tblUserList td:nth-child(1),
+	table#tblUserList th:nth-child(1),	
+	table#tblUserList td:nth-child(4),
+	table#tblUserList th:nth-child(4),
+	table#tblUserList td:nth-child(5),
+	table#tblUserList th:nth-child(5),
+	table#tblUserList td:nth-child(6),
+	table#tblUserList th:nth-child(6) {display: none;}
+	table#tblUserList { font-size: 11px; }
+	
+	table#tblDealList td:nth-child(2), 
+	table#tblDealList th:nth-child(2),		
+	table#tblDealList td:nth-child(4), 
+	table#tblDealList th:nth-child(4),	
+	table#tblDealList td:nth-child(7), 
+	table#tblDealList th:nth-child(7) {display: none;}
+	table#tblDealList { font-size: 11px; }
+
+	table#tblPromoList td:nth-child(4), 
+	table#tblPromoList th:nth-child(4),	
+	table#tblPromoList td:nth-child(5), 
+	table#tblPromoList th:nth-child(5),		
+	table#tblPromoList td:nth-child(6), 
+	table#tblPromoList th:nth-child(6),	
+	table#tblPromoList td:nth-child(7), 
+	table#tblPromoList th:nth-child(7) {display: none;}
+	table#tblPromoList { font-size: 11px; }
+	
+	table#tblTouristCardList td:nth-child(6),
+	table#tblTouristCardList th:nth-child(6),
+	table#tblTouristCardList td:nth-child(5),
+	table#tblTouristCardList th:nth-child(5),
+	table#tblTouristCardList td:nth-child(7),
+	table#tblTouristCardList th:nth-child(7),		
+	table#tblTouristCardList td:nth-child(8),
+	table#tblTouristCardList th:nth-child(8) {display: none;}
+	table#tblTouristCardList { font-size: 11px; }	
+}
