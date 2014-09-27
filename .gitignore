@@ -41,3 +41,10 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+assets/markers/*
+assets/profiles/*
+assets/qrcodes/*
+assets/videos/*
+application/logs/*
+application/cache/*
