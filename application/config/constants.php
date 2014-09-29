@@ -46,6 +46,8 @@ define('EMAIL_MULTITYPE',						'html');
 define('EMAIL_CHARSET',							'iso-8859-1');
 
 define('CREDITS_PRICE',							5);
+define('COVER_IMAGE_WIDTH', 1080);
+define('COVER_IMAGE_HEIGHT', 608);
 
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */

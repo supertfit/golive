@@ -63,8 +63,6 @@
         $prefilm_url = isset($_POST['prefilm_url']) ? $_POST['prefilm_url'] : '';
         $cover_photo_url = isset($_POST['cover_photo_url']) ? $_POST['cover_photo_url'] : '';
         
-        $width = 640;
-        $height = 360;
 
         $ptr_date = new DateTime();
         if ($_FILES["prefilmVideo"]['name'] != '') {
@@ -82,10 +80,11 @@
             
             if ($cover_photo_url != '') {
                 $destFile = $this->common_model->GenerateSalt(8)."_".$ptr_date->format('YmdHis').".$ext";
+                list($width, $height) = getimagesize(ABS_MARKER_PATH.$cover_photo_url);
                 if ($ext == "jpg" || $ext == "jpeg") {
                     $src = imagecreatefromjpeg( HTTP_MARKER_PATH.$cover_photo_url );
-                    $dest = imagecreatetruecolor( $width, $height );
-                    imagecopy($dest, $src, 0, 0, 0, 0, $width, $height);
+                    $dest = imagecreatetruecolor( COVER_IMAGE_WIDTH, COVER_IMAGE_HEIGHT );
+                    imagecopyresized($dest, $src, 0, 0, 0, 0, COVER_IMAGE_WIDTH, COVER_IMAGE_HEIGHT, $width, $height);
                     header('Content-Type: image/jpeg');
                     imagejpeg($dest, ABS_MARKER_PATH.$destFile, 100);
                     imagedestroy($dest);
@@ -93,8 +92,8 @@
                     $cover_photo_url = $destFile;
                 } elseif ($ext == "png"){
                     $src = imagecreatefrompng( HTTP_MARKER_PATH.$cover_photo_url );
-                    $dest = imagecreatetruecolor( $width, $height );
-                    imagecopy($dest, $src, 0, 0, 0, 0, $width, $height);
+                    $dest = imagecreatetruecolor( COVER_IMAGE_WIDTH, COVER_IMAGE_HEIGHT );
+                    imagecopyresized($dest, $src, 0, 0, 0, 0, COVER_IMAGE_WIDTH, COVER_IMAGE_HEIGHT, $width, $height);
                     header('Content-Type: image/png');
                     imagepng($dest, ABS_MARKER_PATH.$destFile, 9);
                     imagedestroy($dest);

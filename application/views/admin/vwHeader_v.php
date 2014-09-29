@@ -156,16 +156,16 @@
 						</li>
 						<li <?php if ($pg == 13) { echo 'class="active"';}?>>
 							<a href="<?php echo base_url();?>admin/buycredit"><i class="icon-money"></i><span class="hidden-sm text"> Buy Credits</span></a>
+						</li>
+						<li <?php if ($pg == 21) { echo 'class="active"';}?>>
+							<a href="<?php echo base_url();?>admin/invoice"><i class="icon-print"></i><span class="hidden-sm text"> Invoices</span></a>
+						</li>
+						<li <?php if ($pg == 22) { echo 'class="active"';}?>>
+							<a href="<?php echo base_url();?>admin/transaction"><i class="icon-credit-card"></i><span class="hidden-sm text"> Transactions</span></a>
 						</li>						
 						<li <?php if ($pg == 6) { echo 'class="active"';}?>>
 							<a href="<?php echo base_url();?>admin/home/go_qrgenerator"><i class="icon-qrcode"></i><span class="hidden-sm text"> QR Code Generator</span></a>
-						</li>						
-						<!-- li <?php if ($pg == 8) { echo 'class="active"';}?>>
-							<a href="<?php echo base_url();?>admin/home/go_addtouristcard"><i class="icon-plus"></i><span class="hidden-sm text"> Add Tourist Card</span></a>
 						</li>
-						<li <?php if ($pg == 9) { echo 'class="active"';}?>>
-							<a href="<?php echo base_url();?>admin/home/go_addcategorycard"><i class="icon-plus"></i><span class="hidden-sm text"> Add Category Card</span></a>
-						</li -->
 					</ul>
 				</div>
 				<a href="#" id="main-menu-min" class="full visible-md visible-lg"><i class="icon-double-angle-left"></i></a>
