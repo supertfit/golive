@@ -46,9 +46,9 @@ $this->load->view('admin/vwHeader_v');
         								</div> 
 
         								<div class="form-group">
-        								    <label class="col-md-4 control-label">QR Code</label>  
+        								    <label class="col-md-4 control-label">goLiveCard ID</label>  
         								    <div class="col-md-5">
-        								        <input type="text" class="form-control" readonly name="qrcode" value='<?php echo $data->qrcode;?>' placeholder="QR Code"/>
+        								        <input type="text" class="form-control" readonly name="qrcode" value='<?php echo $data->qrcode;?>' placeholder="goLiveCard ID"/>
         								    </div>
         								    <span class="col-md-3" style="color: #AAA; font-size: 11px;">* goLiveCard ID</span>
         								</div>

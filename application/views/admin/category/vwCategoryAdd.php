@@ -27,9 +27,9 @@ $this->load->view('admin/vwHeader_v');
         								</div>
 
         								<div class="form-group">
-        								    <label class="col-md-4 control-label">QR Code</label>  
+        								    <label class="col-md-4 control-label">goLiveCard ID</label>  
         								    <div class="col-md-5">
-        								        <input type="text" class="form-control" readonly name="qrcode" placeholder="QR Code" value="<?php echo $qrcode;?>"/>
+        								        <input type="text" class="form-control" readonly name="qrcode" placeholder="goLiveCard ID" value="<?php echo $qrcode;?>"/>
         								    </div>
         								    <span class="col-md-3" style="color: #AAA; font-size: 11px;">* goLiveCard ID</span>
         								</div>
@@ -51,7 +51,29 @@ $this->load->view('admin/vwHeader_v');
         								        <input name="video_url" type="hidden">
         								    </div>
         								</div>
-
+        								
+        								<div class="form-group">
+        								    <label class="col-md-4 control-label">Position</label>
+        								    <div class="col-md-5">
+        								        <input type="text" class="form-control" name="position" placeholder="Position"/>
+        								    </div>
+        								</div>        								
+        								
+        								<div class="form-group">
+        								    <label class="col-md-4 control-label">Icon Image</label>
+        								    <div class="col-md-4">
+        								        <input name="iconImage" class="input-file" type="file">
+        								        <input name="icon_url" type="hidden">
+        								    </div>
+        								</div>
+        								
+        								<div class="form-group">
+        								    <label class="col-md-4 control-label">Icon Hover Image</label>
+        								    <div class="col-md-4">
+        								        <input name="iconHoverImage" class="input-file" type="file">
+        								        <input name="icon_hover_url" type="hidden">
+        								    </div>
+        								</div>
 
         								<div class="form-group">
         								    <label class="col-md-4 control-label">&nbsp;</label>

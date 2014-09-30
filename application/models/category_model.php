@@ -63,6 +63,9 @@
         $prefilm_url = isset($_POST['prefilm_url']) ? $_POST['prefilm_url'] : '';
         $cover_photo_url = isset($_POST['cover_photo_url']) ? $_POST['cover_photo_url'] : '';
         
+        $icon_url = isset($_POST['icon_url']) ? $_POST['icon_url'] : '';
+        $icon_hover_url = isset($_POST['icon_hover_url']) ? $_POST['icon_hover_url'] : '';
+        $position = isset($_POST['position']) ? $_POST['position'] : 1;
 
         $ptr_date = new DateTime();
         if ($_FILES["prefilmVideo"]['name'] != '') {
@@ -72,6 +75,20 @@
                 $prefilm_url = '';
         }
         
+        if ($_FILES["iconImage"]['name'] != '') {
+            $ext = pathinfo( $_FILES['iconImage']['name'] )['extension'];
+            $icon_url = $this->common_model->GenerateSalt(8)."_".$ptr_date->format('YmdHis').".$ext";
+            if (!move_uploaded_file($_FILES['iconImage']['tmp_name'], ABS_ICON_PATH.$icon_url))
+                $icon_url = '';
+        }
+        
+        if ($_FILES["iconHoverImage"]['name'] != '') {
+            $ext = pathinfo( $_FILES['iconHoverImage']['name'] )['extension'];
+            $icon_hover_url = $this->common_model->GenerateSalt(8)."_".$ptr_date->format('YmdHis').".$ext";
+            if (!move_uploaded_file($_FILES['iconHoverImage']['tmp_name'], ABS_ICON_PATH.$icon_hover_url))
+                $icon_hover_url = '';
+        }
+
         if ($_FILES["coverImage"]['name'] != '') {
             $ext = pathinfo( $_FILES['coverImage']['name'] )['extension'];
             $cover_photo_url = $this->common_model->GenerateSalt(8)."_".$ptr_date->format('YmdHis').".$ext";
@@ -138,9 +155,9 @@
                 $qrcode_link = $json_qrcode->filename;
             }
             
-            $str_sql = "INSERT INTO golive_category(name, qrcode, qrcode_link, target_id, metadata, target_type, cover_photo_url, prefilm_url, created_at, updated_at)
-                         VALUE (?, ?, ?, ?, ?, ?, ?, ?, now(), now())";
-            $this->db->query($str_sql, array($name, $qrcode, $qrcode_link, $target_id, $metadata, $target_type, $cover_photo_url, $prefilm_url));
+            $str_sql = "INSERT INTO golive_category(name, qrcode, qrcode_link, target_id, metadata, target_type, cover_photo_url, prefilm_url, icon_url, icon_hover_url, position, created_at, updated_at)
+                         VALUE (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now(), now())";
+            $this->db->query($str_sql, array($name, $qrcode, $qrcode_link, $target_id, $metadata, $target_type, $cover_photo_url, $prefilm_url, $icon_url, $icon_hover_url, $position));
         } else {
             $str_sql = "UPDATE golive_category
                            SET name = ?
@@ -151,9 +168,12 @@
                              , target_type = ?
                              , cover_photo_url = ?
                              , prefilm_url = ?
+                             , icon_url = ?
+                             , icon_hover_url = ?
+                             , position = ?
                              , updated_at = now()
                          WHERE id = ?";
-            $this->db->query($str_sql, array($name, $qrcode, $target_id, $target_rate, $metadata, $target_type, $cover_photo_url, $prefilm_url, $category_id));
+            $this->db->query($str_sql, array($name, $qrcode, $target_id, $target_rate, $metadata, $target_type, $cover_photo_url, $prefilm_url, $icon_url, $icon_hover_url, $position, $category_id));
         }
     }
     

@@ -28,7 +28,7 @@ $this->load->view('admin/vwHeader_v');
         								</div>       								    							    
 
         								<div class="form-group">
-        								    <label class="col-md-4 control-label">QR Code</label>  
+        								    <label class="col-md-4 control-label">goLiveCard ID</label>  
         								    <div class="col-md-5">
         								        <p class="form-control"><?php echo $data->qrcode;?></p>
         								    </div>

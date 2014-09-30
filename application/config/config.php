@@ -32,6 +32,7 @@ define('HTTP_MARKER_PATH', $config['base_url'].'assets/markers/');
 define('HTTP_VIDEO_PATH', $config['base_url'].'assets/videos/');
 define('HTTP_QRCODE_PATH', $config['base_url'].'assets/qrcodes/');
 define('HTTP_PROFILE_PATH', $config['base_url'].'assets/profiles/');
+define('HTTP_ICON_PATH', $config['base_url'].'assets/icons/');
 
 define('HTTP_VUFORIA_BASE', $config['base_url'].'vuforia/');
 define('HTTP_QRCODE_BASE', $config['base_url'].'qrgenerator/');
@@ -42,6 +43,7 @@ define('ABS_VIDEO_PATH', $_SERVER['DOCUMENT_ROOT'].'/assets/videos/');
 define('ABS_MARKER_PATH', $_SERVER['DOCUMENT_ROOT'].'/assets/markers/');
 define('ABS_EXPORT_PATH', $_SERVER['DOCUMENT_ROOT'].'/assets/exports/');
 define('ABS_PROFILE_PATH', $_SERVER['DOCUMENT_ROOT'].'/assets/profiles/');
+define('ABS_ICON_PATH', $_SERVER['DOCUMENT_ROOT'].'/assets/icons/');
 
 define('GENIUS_CSS_PATH', $config['base_url'].'assets/genius/css/');
 define('GENIUS_JS_PATH', $config['base_url'].'assets/genius/js/');

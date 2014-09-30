@@ -28,9 +28,9 @@ $this->load->view('admin/vwHeader_v');
         								</div>
 
         								<div class="form-group">
-        								    <label class="col-md-4 control-label">QR Code</label>  
+        								    <label class="col-md-4 control-label">goLiveCard ID</label>  
         								    <div class="col-md-5">
-        								        <input type="text" class="form-control" readonly name="qrcode" value='<?php echo $data->qrcode;?>' placeholder="QR Code"/>
+        								        <input type="text" class="form-control" readonly name="qrcode" value='<?php echo $data->qrcode;?>' placeholder="goLiveCard ID"/>
         								    </div>
         								    <span class="col-md-3" style="color: #AAA; font-size: 11px;">* goLiveCard ID</span>
         								</div>
@@ -95,7 +95,42 @@ $this->load->view('admin/vwHeader_v');
         								            </a>
         								        </p>
         								    </div>
+        								</div>
+        								
+        								<div class="form-group">
+        								    <label class="col-md-4 control-label">Position</label>
+        								    <div class="col-md-5">
+        								        <input type="text" class="form-control" name="position" placeholder="Position" value="<?php echo $data->position;?>"/>
+        								    </div>
         								</div>        								
+        								
+        								<div class="form-group">
+        								    <label class="col-md-4 control-label">Icon Image</label>
+        								    <div class="col-md-4">
+        								        <input name="iconImage" class="input-file" type="file">
+        								        <input name="icon_url" type="hidden" value='<?php echo $data->icon_url;?>'>
+        								    </div>
+        								</div>
+        								<div class="form-group">
+        								    <label class="col-md-4 control-label"></label>
+        								    <div class="col-md-4">
+        								        <img src="<?php echo HTTP_ICON_PATH.$data->icon_url;?>" style="width: 100%;"/>
+        								    </div>
+        								</div>
+        								
+        								<div class="form-group">
+        								    <label class="col-md-4 control-label">Icon Hover Image</label>
+        								    <div class="col-md-4">
+        								        <input name="iconHoverImage" class="input-file" type="file">
+        								        <input name="icon_hover_url" type="hidden" value='<?php echo $data->icon_hover_url;?>'>
+        								    </div>
+        								</div>
+        								<div class="form-group">
+        								    <label class="col-md-4 control-label"></label>
+        								    <div class="col-md-4">
+        								        <img src="<?php echo HTTP_ICON_PATH.$data->icon_hover_url;?>" style="width: 100%;"/>
+        								    </div>
+        								</div>        								        								
                                         
         								<div class="form-group">
         								    <label class="col-md-4 control-label">Created On</label>  

@@ -29,7 +29,7 @@ $this->load->view('admin/vwHeader_v');
 									  <tr>
 										  <th>ID</th>
 										  <th>Name</th>
-										  <th>QR Code</th>
+										  <th>goLiveCard ID</th>
                                           <th>Prefilm</th>
 										  <th>Cover Image</th>
 										  <th></th>

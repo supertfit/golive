@@ -25,7 +25,7 @@ $this->load->view('admin/vwHeader_v');
 						  <thead>
 							  <tr>
 								  <th>ID</th>
-								  <th>QR Code</th>
+								  <th>goLiveCard ID</th>
 								  <th>Target Id</th>
 								  <th>Sender Name</th>
 								  <th>Sender Email</th>
