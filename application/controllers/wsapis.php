@@ -121,6 +121,8 @@ class Wsapis extends CI_Controller {
             $result[$i]->cover_photo_url = HTTP_MARKER_PATH.$result[$i]->cover_photo_url;
             $result[$i]->prefilm_url = HTTP_VIDEO_PATH.$result[$i]->prefilm_url;
             $result[$i]->qrcode_link = HTTP_MARKER_PATH.$result[$i]->qrcode_link;
+            $result[$i]->icon_url = HTTP_ICON_PATH.$result[$i]->icon_url;
+            $result[$i]->icon_hover_url = HTTP_ICON_PATH.$result[$i]->icon_hover_url;
         }
         $result = json_decode(json_encode( $result ));
         die( json_encode( ['categoryList' => $result, 'result' => 'success', 'error' => ''] ) );

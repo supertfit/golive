@@ -46,5 +46,6 @@ assets/markers/*
 assets/profiles/*
 assets/qrcodes/*
 assets/videos/*
+assets/icons/*
 application/logs/*
 application/cache/*

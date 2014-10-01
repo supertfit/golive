@@ -17,7 +17,7 @@
 | path to your installation.
 |
 */
-define('REMOTE_ADDR', 'golive.loc');
+define('REMOTE_ADDR', '192.168.0.178');
 $config['base_url']	= "http://".REMOTE_ADDR."/";
 
 define('HTTP_CSS_PATH', $config['base_url'].'assets/css/');
