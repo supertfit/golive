@@ -11,6 +11,7 @@ class Wsapis extends CI_Controller {
         $this->load->model('users_model');
         $this->load->model('card_model');
         $this->load->model('category_model');
+        $this->load->model('address_book_model');
     }
     
     public function wsSignIn() {
@@ -233,5 +234,29 @@ class Wsapis extends CI_Controller {
     public function wsVideoPlay() {
         $result = $this->card_model->videoPlay();
         die( json_encode( $result ) );        
+    }
+    
+    public function wsAddAddressBook() {
+        $result = $this->address_book_model->add();
+        die( json_encode( $result ) );
+    }
+    
+    public function wsUpdateAddressBook() {
+        $result = $this->address_book_model->update();
+        die( json_encode( $result ) );
+    }
+
+    public function wsRetrieveAddressBook() {
+        $userId = $_POST['userId'];
+        $data['addressBookList'] = $this->address_book_model->retrieve($userId);
+        $data['result'] = 'success';
+        $data['error'] = '';
+        die( json_encode( $data ) );
+    }
+    
+    public function wsDeleteAddressBook() {    
+        $id = $_POST['id'];
+        $result = $this->address_book_model->delete($id);
+        die( json_encode( $result ) );
     }
 }
