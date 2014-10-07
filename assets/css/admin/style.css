@@ -17,7 +17,6 @@ button a:hover { color: #FFF; text-decoration: none; }
 	
 	table#tblBuycreditList td:nth-child(5),
 	table#tblBuycreditList th:nth-child(5) {display: none;}	
-	
 }
 @media only screen and (max-width: 840px) {
 	table#tblCustomCardList td:nth-child(3), 
@@ -52,7 +51,12 @@ button a:hover { color: #FFF; text-decoration: none; }
 	table#tblBuycreditList td:nth-child(2),
 	table#tblBuycreditList th:nth-child(2),
 	table#tblBuycreditList td:nth-child(5),
-	table#tblBuycreditList th:nth-child(5) {display: none;}					
+	table#tblBuycreditList th:nth-child(5) {display: none;}
+	
+	table#tblSupportList td:nth-child(6),
+	table#tblSupportList th:nth-child(6),
+	table#tblSupportList td:nth-child(7),
+	table#tblSupportList th:nth-child(7) {display: none;}
 }
 @media only screen and (max-width: 640px) {
 	table#tblCustomCardList td:nth-child(3), 
@@ -107,5 +111,22 @@ button a:hover { color: #FFF; text-decoration: none; }
 	table#tblTouristCardList th:nth-child(7),		
 	table#tblTouristCardList td:nth-child(8),
 	table#tblTouristCardList th:nth-child(8) {display: none;}
-	table#tblTouristCardList { font-size: 11px; }	
+	table#tblTouristCardList { font-size: 11px; }
+	
+	table#tblSupportCategoryList td:nth-child(4),
+	table#tblSupportCategoryList th:nth-child(4) {display: none;}
+	table#tblSupportCategoryList { font-size: 11px; }
+	
+	table#tblDeliveryNoteList td:nth-child(4),
+	table#tblDeliveryNoteList th:nth-child(4) {display: none;}
+	table#tblDeliveryNoteList { font-size: 11px; }
+
+	table#tblSupportList td:nth-child(2),
+	table#tblSupportList th:nth-child(2),
+	table#tblSupportList td:nth-child(3),
+	table#tblSupportList th:nth-child(3),	
+	table#tblSupportList td:nth-child(6),
+	table#tblSupportList th:nth-child(6),
+	table#tblSupportList td:nth-child(7),
+	table#tblSupportList th:nth-child(7) {display: none;}
 }

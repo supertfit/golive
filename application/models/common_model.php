@@ -196,4 +196,12 @@ class Common_model extends CI_Model {
 	function getSupportCategoryType() {
 	    return array(1 => 'Support', 2 => 'Feedback');
 	}	
+	
+	function getSupportStatusType() {
+	    return array(0 => 'New', 1 => 'In Progress', 2 => 'Information Requested', 3 => 'Hold', 4 => 'Solved', 5 => 'Closed');
+	}
+	
+	function getSupportPriorityType() {
+	    return array(0 => 'Low', 1 => 'Normal', 2 => 'High');
+	}
 }

@@ -25,7 +25,7 @@ $this->load->view('admin/vwHeader_v');
 					</div>
 					
 					<div class="box-content">
-						<table class="table table-striped table-bordered bootstrap-datatable datatable" id="tblTourstcategoryList">
+						<table class="table table-striped table-bordered bootstrap-datatable datatable" id="tblDeliveryNoteList">
 						  <thead>
 							  <tr>
 								  <th>ID</th>

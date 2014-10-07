@@ -8,18 +8,21 @@
     public function add()
     {
         $userId = isset($_POST['user_id']) ? $_POST['user_id'] : '';
-        $addressBookList = isset($_POST['addressBookList']) ? $_POST['addressBookList'] : '';
-        if ($userId == '' || $addressBookList) {
+        $fullname = isset($_POST['fullname']) ? $_POST['fullname'] : '';
+        $address = isset($_POST['address']) ? $_POST['address'] : '';
+        $city = isset($_POST['city']) ? $_POST['city'] : '';
+        $state = isset($_POST['state']) ? $_POST['state'] : '';
+        $country = isset($_POST['country']) ? $_POST['country'] : '';
+        $postal_code = isset($_POST['postal_code']) ? $_POST['postal_code'] : '';
+        if ($userId == '') {
             return ['result' => 'failed', 'error' => 'Failed on adding address books.'];
         }
-        for ($i = 0; $i < count($addressList); $i++) {
-            $sql = "INSERT INTO golive_address_book(user_id, fullname, address, city, state, country, postal_code, created_at, updated_at)
-                     VALUE (?, ?, ?, ?, ?, ?, ?, now(), now())";
-            $this->db->query($sql, array($userId, $addressBookList[$i]['fullname'], $addressBookList[$i]['address'],
-                            $addressBookList[$i]['city'], $addressBookList[$i]['state'],
-                            $addressBookList[$i]['country'], $addressBookList[$i]['postal_code']));
-        }
-        return ['result' => 'success', 'error' => ''];
+        
+        $sql = "INSERT INTO golive_address_book(user_id, fullname, address, city, state, country, postal_code, created_at, updated_at)
+                 VALUE (?, ?, ?, ?, ?, ?, ?, now(), now())";
+        $this->db->query($sql, array($userId, $fullname, $address, $city, $state, $country, $postal_code));
+        $id = $this->db->insert_id();
+        return ['result' => 'success', 'error' => '', 'address_book_id' => $id];
     }
     
     public function update()
