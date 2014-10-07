@@ -47,5 +47,6 @@ assets/profiles/*
 assets/qrcodes/*
 assets/videos/*
 assets/icons/*
+assets/exports/*
 application/logs/*
 application/cache/*

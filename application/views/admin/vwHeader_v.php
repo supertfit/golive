@@ -162,6 +162,12 @@
 						</li>
 						<li <?php if ($pg == 22) { echo 'class="active"';}?>>
 							<a href="<?php echo base_url();?>admin/transaction"><i class="icon-credit-card"></i><span class="hidden-sm text"> Transactions</span></a>
+						</li>
+						<li <?php if ($pg == 23) { echo 'class="active"';}?>>
+							<a href="<?php echo base_url();?>admin/deliveryNote"><i class="icon-flag"></i><span class="hidden-sm text"> Delivery Note</span></a>
+						</li>
+						<li <?php if ($pg == 24) { echo 'class="active"';}?>>
+							<a href="<?php echo base_url();?>admin/supportCategory"><i class="icon-tag"></i><span class="hidden-sm text"> Support Category</span></a>
 						</li>						
 						<li <?php if ($pg == 6) { echo 'class="active"';}?>>
 							<a href="<?php echo base_url();?>admin/home/go_qrgenerator"><i class="icon-qrcode"></i><span class="hidden-sm text"> QR Code Generator</span></a>

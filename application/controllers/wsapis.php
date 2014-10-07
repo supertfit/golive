@@ -254,9 +254,19 @@ class Wsapis extends CI_Controller {
         die( json_encode( $data ) );
     }
     
-    public function wsDeleteAddressBook() {    
+    public function wsDeleteAddressBook() {
         $id = $_POST['id'];
         $result = $this->address_book_model->delete($id);
         die( json_encode( $result ) );
     }
+    
+    public function wsUploadPhotoToVuforia() {
+        $result = $this->card_model->wsUploadPhotoToVuforia();
+        die( json_encode( $result ) );        
+    }
+
+    public function wsCheckPhotoRate() {
+        $result = $this->card_model->wsCheckPhotoRate();
+        die( json_encode( $result ) );
+    }    
 }

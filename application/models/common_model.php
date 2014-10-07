@@ -180,13 +180,20 @@ class Common_model extends CI_Model {
 	function getCardType() {
 	    return array('1' => 'Tourist', '2' => 'Custom', '3' => 'Category', '' => '');
 	}
+	
 	function getTargetType() {
 	    return array('1' => 'Cloud', '2' => 'Device', '' => '');
 	}
+	
 	function getDefaultCardType() {
 	    return array(1 => 'Category', 2 => 'Tourist');
 	}
+	
 	function getDealType() {
 	    return array(1 => 'Credits Discount', 2 => 'Credits Bonus', 3 => 'Free Credits', 4 => 'Purchase Discount', 5 => 'Purchase Bonus', 6 => 'Free Purchase');
 	}
+	
+	function getSupportCategoryType() {
+	    return array(1 => 'Support', 2 => 'Feedback');
+	}	
 }

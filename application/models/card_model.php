@@ -559,5 +559,54 @@
 	            $this->db->query($sql, array($target_rate, $result[$i]->id));
 	        }
 	    }
-	}	
+	}
+
+	public function wsUploadPhotoToVuforia() {
+	    $photo = isset( $_POST['photo'] ) ? $_POST['photo'] : '';
+	     
+	    $ptr_date = new DateTime();
+        $str_photo_url = 'rate_'.$this->common_model->GenerateSalt(8)."_".$ptr_date->format('YmdHis').".jpg";
+        file_put_contents( ABS_MARKER_PATH.$str_photo_url, base64_decode( str_replace(" ", "+", $photo) ) );
+        
+        $params = array(
+                'action_type'		=> 'addtarget',
+                'targetName'		=> $this->common_model->GenerateSalt(5).'_'.$ptr_date->format('YmdHis'),
+                'targetLocation'	=> ABS_MARKER_PATH.$str_photo_url,
+                'metadata'			=> ''
+        );
+         
+        $str_url = HTTP_VUFORIA_BASE."VWSExternalAction.php";
+        $json_result = $this->common_model->httpPOST( $str_url, $params );
+        if (!$json_result || $json_result == 'failed' || $json_result == '') {
+            return ['result' => 'failed', 'error' => 'Failed to add cloud target.'];
+        }
+         
+        $ptr_result = json_decode($json_result);
+        if ($ptr_result && $ptr_result->result_code == "TargetCreated") {
+            return ['result' => 'success', 'error' => '', 'target_id' => $ptr_result->target_id];
+        } else {
+            return ['result' => 'failed', 'error' => 'Failed to add cloud target.'];
+        }
+	}
+	
+	public function wsCheckPhotoRate() {
+	    $target_id = isset( $_POST['target_id'] ) ? $_POST['target_id'] : '';
+	    
+	    $str_url = HTTP_VUFORIA_BASE."VWSExternalAction.php";
+	    $params = array(
+	                    'action_type'		=> 'gettarget',
+	                    'targetId'		    => $target_id
+	    );
+	    $json_result = $this->common_model->httpPOST( $str_url, $params );
+	    if (!$json_result || $json_result == 'failed' || $json_result == '') {
+	        return ['result' => 'failed', 'error' => 'Error On Getting Target Rate', 'rate' => -2];
+	    } else {
+	        $ptr_result = json_decode($json_result);
+	        if ($ptr_result && $ptr_result->result_code == 'Success') {
+	            return ['result' => 'success', 'error' => 'Error On Getting Target Rate', 'rate' => $ptr_result->target_record->tracking_rating];
+	        } else {
+	            return ['result' => 'failed', 'error' => 'Current Target is still pending', 'rate' => -1];
+	        }
+	    }
+	}
 }
