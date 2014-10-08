@@ -1,15 +1,4 @@
 <?php
-/********************************************************************************************
- * Page				: 
- * Author			: JENI
- * ------------------------------------------------------------------------------------------
- * File Name		: vwUserEdit.php
- * Description		: 
- * Date				: Sep 14
- * Version			: 1.0
- ********************************************************************************************/
-?>
-<?php
 $this->load->view('admin/vwHeader_v');
 ?>
 			<!-- start: Content -->
@@ -189,6 +178,10 @@ $this->load->view('admin/vwHeader_v');
         								        <button class="btn btn-danger">
         								            <a class="js-link" href="<?php echo base_url();?>admin/users/delete/<?php echo $data->id;?>">Delete</a>
         								        </button>
+        								        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        								        <button class="btn btn-success">
+        								            <a href="<?php echo base_url();?>admin/users/address_book/<?php echo $data->id;?>">Address Book</a>
+        								        </button>        								                								        
         								    </div>
                                         </div>
     								</fieldset>			

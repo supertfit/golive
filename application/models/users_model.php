@@ -380,4 +380,26 @@ class Users_model extends CI_Model {
         $this->db->query($str_sql, array($first_name, $last_name, $birthday, $photoLink, $userId));
         return $result;
     }
+    
+    function getAddressBook($uid) {
+        $sql = "SELECT *
+                  FROM golive_address_book
+                 WHERE user_id = ?";
+        return $this->db->query($sql, $uid)->result();
+    }    
+    
+    public function export_address_book_CSV($uid)
+    {
+        $result = $this->getAddressBook($uid);
+        $ptr_header = array ('Name', 'Address', 'City', 'State', 'Country', 'Postal Code', 'Joined On');
+        $ptr_data = array ();
+        $i = 0;
+        foreach ($result as $k => $v)
+        {
+            $ptr_data[$i] = array ( $v->fullname, $v->address, $v->city, $v->state, $v->country, $v->postal_code, $v->created_at );
+            $i ++;
+        }
+    
+        $str_csvname = $this->common_model->writeCSVFile( $ptr_header, $ptr_data );
+    }    
 }

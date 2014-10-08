@@ -94,7 +94,7 @@ class Users extends CI_Controller {
         redirect('admin/home', 'refresh');
     }
     
-	public function block_user ( $uid ) {
+	public function block_user( $uid ) {
 		$this->users_model->block( $uid );
 		redirect('admin/users');
 	}
@@ -102,5 +102,16 @@ class Users extends CI_Controller {
 	public function activate_user ( $uid ) {
 		$this->users_model->active( $uid );
 		redirect('admin/users');
+	}
+	
+	public function address_book($uid) {
+	    $arr['page'] = 1;
+	    $arr['user_id'] = $uid;
+	    $arr['addressBooks'] = $this->users_model->getAddressBook($uid);
+	    $this->load->view('admin/user/vwAddressBookList',$arr);	    
+	}
+	
+	public function csv_address_book($uid) {
+	    $this->users_model->export_address_book_CSV($uid);	    
 	}
 }
