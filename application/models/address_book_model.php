@@ -7,7 +7,7 @@
 	
     public function add()
     {
-        $userId = isset($_POST['user_id']) ? $_POST['user_id'] : '';
+        $userId = isset($_POST['userId']) ? $_POST['userId'] : '';
         $fullname = isset($_POST['fullname']) ? $_POST['fullname'] : '';
         $address = isset($_POST['address']) ? $_POST['address'] : '';
         $city = isset($_POST['city']) ? $_POST['city'] : '';

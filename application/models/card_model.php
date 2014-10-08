@@ -563,11 +563,11 @@
 
 	public function wsUploadPhotoToVuforia() {
 	    $photo = isset( $_POST['photo'] ) ? $_POST['photo'] : '';
-	     
+
 	    $ptr_date = new DateTime();
         $str_photo_url = 'rate_'.$this->common_model->GenerateSalt(8)."_".$ptr_date->format('YmdHis').".jpg";
         file_put_contents( ABS_MARKER_PATH.$str_photo_url, base64_decode( str_replace(" ", "+", $photo) ) );
-        
+                
         $params = array(
                 'action_type'		=> 'addtarget',
                 'targetName'		=> $this->common_model->GenerateSalt(5).'_'.$ptr_date->format('YmdHis'),
@@ -580,7 +580,6 @@
         if (!$json_result || $json_result == 'failed' || $json_result == '') {
             return ['result' => 'failed', 'error' => 'Failed to add cloud target.'];
         }
-         
         $ptr_result = json_decode($json_result);
         if ($ptr_result && $ptr_result->result_code == "TargetCreated") {
             return ['result' => 'success', 'error' => '', 'target_id' => $ptr_result->target_id];
