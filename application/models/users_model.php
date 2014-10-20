@@ -102,8 +102,17 @@ class Users_model extends CI_Model {
         $str_pwd 		= isset($_POST['password'])?$_POST['password']:'';
         $str_birthday 	= isset($_POST['birthday'])?$_POST['birthday']:'';
         $str_gender     = isset($_POST['gender'])?$_POST['gender']:'M';
+        $str_photo      = isset($_POST['photo'])?$_POST['photo']:'';
         
     
+        $ptr_date = new DateTime();
+        if ($str_photo != '') {
+            $str_photo_url = 'profile_'.$this->common_model->GenerateSalt(8)."_".$ptr_date->format('YmdHis').".jpg";
+            file_put_contents( ABS_PROFILE_PATH.$str_photo_url, base64_decode( str_replace(" ", "+", $str_photo) ) );
+        } else {
+            $str_photo_url = 'default.png';
+        }
+        
         if ($str_firstname == '' && $str_lastname == '') {
             $result = array('result'=>'failed', 'error'=>'Invalid Username.');
             return $result;
@@ -130,10 +139,10 @@ class Users_model extends CI_Model {
             sleep(1);
         }
     
-        $str_sql = "INSERT INTO golive_user(first_name, last_name, email, birthday, gender, activation_code, secure_key, salt, is_active, created_at, updated_at) 
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, 0, CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP())";
+        $str_sql = "INSERT INTO golive_user(first_name, last_name, email, birthday, gender, photo, activation_code, secure_key, salt, is_active, created_at, updated_at) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 0, CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP())";
     
-        $this->db->query($str_sql, array($str_firstname, $str_lastname, $str_email, $str_birthday, $str_gender, $str_activationCode, $str_enc_pwd, $str_salt));
+        $this->db->query($str_sql, array($str_firstname, $str_lastname, $str_email, $str_birthday, $str_gender, $str_photo_url, $str_activationCode, $str_enc_pwd, $str_salt));
         $str_userId = $this->db->insert_id();
         
     
@@ -156,6 +165,15 @@ class Users_model extends CI_Model {
         $str_email 		= isset($_POST['email'])?$_POST['email']:'';
         $str_snsId 		= isset($_POST['snsId'])?$_POST['snsId']:'';
         $str_nickname 	= isset($_POST['name'])?$_POST['name']:'';
+        $str_photo      = isset($_POST['photo'])?$_POST['photo']:'';
+        
+        $ptr_date = new DateTime();
+        if ($str_photo != '') {
+            $str_photo_url = 'profile_'.$this->common_model->GenerateSalt(8)."_".$ptr_date->format('YmdHis').".jpg";
+            file_put_contents( ABS_PROFILE_PATH.$str_photo_url, base64_decode( str_replace(" ", "+", $str_photo) ) );
+        } else {
+            $str_photo_url = 'default.png';
+        }        
     
         if ($str_snsId == '') {
             $result = array('result' => 'failed', 'error' => 'Social Id empty.');
@@ -178,8 +196,8 @@ class Users_model extends CI_Model {
             $result = array('result'=>'success', 'error'=>'', 'userId'=>$ret[0]->user_id);
             return $result;
         } else {
-            $str_sql = "INSERT INTO golive_user(first_name, last_name, email, is_admin, is_active, created_at, updated_at) VALUES (?, ?, ?, ?, ?, NOW(), NOW())";
-            $this->db->query($str_sql, array($str_username, '', $str_email, false, true));
+            $str_sql = "INSERT INTO golive_user(first_name, last_name, email, photo, is_admin, is_active, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, NOW(), NOW())";
+            $this->db->query($str_sql, array($str_username, '', $str_email, $str_photo_url, false, true));
             $str_userId = $this->db->insert_id();
     
             $str_sql = "INSERT INTO golive_user_sns(user_id, sns_id, username, email, nickname, sns_type, created_at, updated_at) VALUES (?, ?, ?, ?, ?, 'F', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP())";
@@ -259,7 +277,7 @@ class Users_model extends CI_Model {
     
         if ($ret) {
             if ($ret[0]->cnt * 1 >= 1) {
-                return ['result' => 'success', 'error' => 'Email address is already used.'];
+                return ['result' => 'success', 'error' => 'Email address is already used.', 'photo' => ABS_PROFILE_PATH.$ret[0]->photo, ];
             }
         }
         return ['result'=>'failed', 'error'=>'No exist.'];
