@@ -148,7 +148,7 @@ class Users_model extends CI_Model {
     
         $str_verifyurl = base_url()."wsapis/go_activatecode";
         $msgContent = "Your activation code is ".$str_activationCode."\r\nPlease verify it on this url ".$str_verifyurl;
-         
+        
         $body = file_get_contents('application/libraries/phpmailer/template/user_template.html');
         $body = str_replace("{active_code}", $str_activationCode, $body);
         $body = str_replace("{url}", $str_verifyurl, $body);
@@ -165,6 +165,7 @@ class Users_model extends CI_Model {
         $str_email 		= isset($_POST['email'])?$_POST['email']:'';
         $str_snsId 		= isset($_POST['snsId'])?$_POST['snsId']:'';
         $str_nickname 	= isset($_POST['name'])?$_POST['name']:'';
+        $str_snsType 	= isset($_POST['snsType'])?$_POST['snsType']:'';
         $str_photo      = isset($_POST['photo'])?$_POST['photo']:'';
         
         $ptr_date = new DateTime();
@@ -190,8 +191,8 @@ class Users_model extends CI_Model {
             return $result;
         }
     
-        $str_sql = "SELECT id, user_id FROM golive_user_sns WHERE sns_id = ?";
-        $ret = $this->db->query($str_sql, array($str_snsId))->result();
+        $str_sql = "SELECT id, user_id FROM golive_user_sns WHERE sns_id = ? AND sns_type = ?";
+        $ret = $this->db->query($str_sql, array($str_snsId, $str_snsType))->result();
         if ($ret) {
             $result = array('result'=>'success', 'error'=>'', 'userId'=>$ret[0]->user_id);
             return $result;
@@ -200,8 +201,9 @@ class Users_model extends CI_Model {
             $this->db->query($str_sql, array($str_username, '', $str_email, $str_photo_url, false, true));
             $str_userId = $this->db->insert_id();
     
-            $str_sql = "INSERT INTO golive_user_sns(user_id, sns_id, username, email, nickname, sns_type, created_at, updated_at) VALUES (?, ?, ?, ?, ?, 'F', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP())";
-            $this->db->query($str_sql, array($str_userId, $str_snsId, $str_username, $str_email, $str_nickname));
+            $str_sql = "INSERT INTO golive_user_sns(user_id, sns_id, username, email, nickname, sns_type, created_at, updated_at) 
+                        VALUES (?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP())";
+            $this->db->query($str_sql, array($str_userId, $str_snsId, $str_username, $str_email, $str_nickname, $str_snsType));
             $str_scId = $this->db->insert_id();
             	
             $result = array('result' => 'success', 'error' => '', 'userId' => $str_userId);
@@ -272,15 +274,14 @@ class Users_model extends CI_Model {
 
     public function checkEmailConflict() {
         $str_email = isset($_POST['email'])?$_POST['email']:'';
-        $str_sql = "SELECT COUNT(*) cnt FROM golive_user WHERE email = ?";
+        $str_sql = "SELECT * FROM golive_user WHERE email = ?";
         $ret = $this->db->query($str_sql, $str_email)->result();
     
         if ($ret) {
-            if ($ret[0]->cnt * 1 >= 1) {
-                return ['result' => 'success', 'error' => 'Email address is already used.', 'photo' => ABS_PROFILE_PATH.$ret[0]->photo, 'firstname' => $ret[0]->first_name, ];
-            }
+            return ['result' => 'success', 'error' => 'Email address is already used.', 'photo' => HTTP_PROFILE_PATH.$ret[0]->photo, 'firstname' => $ret[0]->first_name, ];
+        } else {
+            return ['result'=>'failed', 'error'=>'No exist.'];
         }
-        return ['result'=>'failed', 'error'=>'No exist.'];
     }
 
 

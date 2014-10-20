@@ -154,10 +154,13 @@ class Common_model extends CI_Model {
 	    $mail->MsgHTML($body);
 
 	    $mail->AddAddress($email, $name);
-	    	
+	    $this->common_model->print_log("HEY");
+	    $this->common_model->print_log("EMAIL : $email");
+	    $this->common_model->print_log("NAME : $name");
 	    if(!$mail->Send()) {
 	        $this->common_model->print_log ("Mailer Error: " . $mail->ErrorInfo);
 	    }
+	    $this->common_model->print_log("END");
 	}
 	
 	function generateQrCode()
