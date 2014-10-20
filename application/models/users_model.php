@@ -277,7 +277,7 @@ class Users_model extends CI_Model {
     
         if ($ret) {
             if ($ret[0]->cnt * 1 >= 1) {
-                return ['result' => 'success', 'error' => 'Email address is already used.', 'photo' => ABS_PROFILE_PATH.$ret[0]->photo, ];
+                return ['result' => 'success', 'error' => 'Email address is already used.', 'photo' => ABS_PROFILE_PATH.$ret[0]->photo, 'firstname' => $ret[0]->first_name, ];
             }
         }
         return ['result'=>'failed', 'error'=>'No exist.'];
