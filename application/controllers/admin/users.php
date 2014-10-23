@@ -6,23 +6,32 @@ if (!defined('BASEPATH'))
 class Users extends CI_Controller {
 
     public function __construct() {
-        parent::__construct();
+        parent::__construct();      
         $this->load->library('form_validation');
         $this->load->model('users_model');
     }
 
     public function index() {
+        if (!($this->session->userdata('id') && $this->session->userdata('is_admin'))) {
+            redirect('/');
+        }        
         $arr['page'] = 1;
         $arr['users'] = $this->users_model->getUserList();
         $this->load->view('admin/user/vwUserList',$arr);
     }
     
     public function add() {
+        if (!($this->session->userdata('id') && $this->session->userdata('is_admin'))) {
+            redirect('/');
+        }
         $arr['page'] = 1;
         $this->load->view('admin/user/vwUserAdd',$arr);
     }
 
     public function edit($uid) {
+        if (!($this->session->userdata('id') && $this->session->userdata('is_admin'))) {
+            redirect('/');
+        }
         $arr['page'] = 1;
         $arr['data'] = $this->users_model->getUserById($uid);
         $this->load->view('admin/user/vwUserEdit',$arr);
@@ -56,10 +65,10 @@ class Users extends CI_Controller {
             if ($this->form_validation->run() == FALSE) {
                 $this->load->view('admin/vwLogin');
             } else {
-                $salt = '5&JDDlwz%Rwh!t2Yg-Igae@QxPzFTSId';
-                $enc_pass  = md5($salt.$password);
-                $sql = "SELECT * FROM golive_user WHERE email = ? AND secure_key = ? AND is_admin = 1";
-                $val = $this->db->query($sql,array($user ,$enc_pass ));
+                // $salt = '5&JDDlwz%Rwh!t2Yg-Igae@QxPzFTSId';
+                // $enc_pass  = md5($salt.$password);
+                $sql = "SELECT * FROM golive_user WHERE email = ? AND secure_key = md5(concat(salt,?)) AND is_admin = 1";
+                $val = $this->db->query($sql,array($user ,$password ));
 
                 if ($val->num_rows) {
                     foreach ($val->result_array() as $recs => $res) {

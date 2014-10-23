@@ -11,9 +11,9 @@ if (!defined('BASEPATH'))
 class Dashboard extends CI_Controller {
 
     public function __construct() {
-        parent::__construct();        
-        if (!$this->session->userdata('is_admin')) {
-            redirect('admin/home');
+        parent::__construct();
+        if (!($this->session->userdata('id') && $this->session->userdata('is_admin'))) {
+            redirect('/');
         }
         $this->load->model('dashboard_model');
     }

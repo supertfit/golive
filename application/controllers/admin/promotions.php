@@ -15,7 +15,9 @@ class Promotions extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		
+		if (!($this->session->userdata('id') && $this->session->userdata('is_admin'))) {
+		    redirect('/');
+		}		
 		$this->load->model('promotions_model');
 	}
 

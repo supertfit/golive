@@ -7,6 +7,9 @@ class Transaction extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
+        if (!($this->session->userdata('id') && $this->session->userdata('is_admin'))) {
+            redirect('/');
+        }        
         $this->load->library('form_validation');
         $this->load->model('common_model');
         $this->load->model('transaction_model');
