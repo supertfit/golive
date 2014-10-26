@@ -142,9 +142,9 @@ class Common_model extends CI_Model {
 	    // 1 = errors and messages
 	    // 2 = messages only
 	    $mail->SMTPAuth   = true;                    // enable SMTP authentication
-	    $mail->SMTPSecure = "ssl";                   // sets the prefix to the servier
+	    $mail->SMTPSecure = "tls";                   // sets the prefix to the servier
 	    $mail->Host       = "smtp.gmail.com";        // sets GMAIL as the SMTP server
-	    $mail->Port       = 465;                     // set the SMTP port for the GMAIL server
+	    $mail->Port       = 587;                     // set the SMTP port for the GMAIL server
 	    $mail->Username   = EMAIL_SMTP_USER;  		 // GMAIL username
 	    $mail->Password   = EMAIL_SMTP_PASS;         // GMAIL password
 	    

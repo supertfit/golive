@@ -268,5 +268,5 @@ class Wsapis extends CI_Controller {
     public function wsCheckPhotoRate() {
         $result = $this->card_model->wsCheckPhotoRate();
         die( json_encode( $result ) );
-    }    
+    }
 }

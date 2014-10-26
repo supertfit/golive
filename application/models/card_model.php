@@ -264,7 +264,7 @@
 	        return $result;
 	    } else {
 	        $cardType = $ret_array[0]->card_type;
-	        $videoUrl = $ret_array[0]->video_url;
+	        $videoUrl = HTTP_VIDEO_PATH.$ret_array[0]->video_url;
 	        if ($cardType == '1') {
 	            $markerImage = HTTP_MARKER_PATH.$ret_array[0]->category_cover_photo_url;
 	            $prefilmUrl = HTTP_VIDEO_PATH.$ret_array[0]->prefilm_url;
