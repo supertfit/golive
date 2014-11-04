@@ -67,8 +67,4 @@ class Card extends CI_Controller {
     public function csv() {
         $this->card_model->exportCSV();
     }
-    
-    public function batch_get_rate() {
-        $this->card_model->batch_get_rate();
-    }    
 }

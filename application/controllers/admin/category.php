@@ -50,8 +50,4 @@ class Category extends CI_Controller {
     public function csv() {
         $this->category_model->exportCSV();
     }
-    
-    public function batch_get_rate() {
-        $this->category_model->batch_get_rate();
-    }
 }

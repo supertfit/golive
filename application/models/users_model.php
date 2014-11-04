@@ -328,7 +328,7 @@ class Users_model extends CI_Model {
           	return $result;
         }
          
-        $str_sql = "SELECT id, salt, secure_key, is_active FROM golive_user WHERE email = ? LIMIT 1";
+        $str_sql = "SELECT id, salt, secure_key, is_active, first_name, last_name FROM golive_user WHERE email = ? LIMIT 1";
         $ptr_result = $this->db->query($str_sql, array($str_email))->result();
         if (!$ptr_result) {
           	$result = array('result' => 'failed', 'error'=>'Invalid Email address or password');
@@ -348,7 +348,7 @@ class Users_model extends CI_Model {
       		                 WHERE id = ?";
       		    $this->db->query($str_sql, $userId);
       		    
-      		    $result = array('result' => 'success', 'error' => '', 'userId' => $ptr_result[0]->id);
+      		    $result = array('result' => 'success', 'error' => '', 'userId' => $ptr_result[0]->id, 'firstname' => $ptr_result[0]->first_name, 'lastname' => $ptr_result[0]->last_name);
       		    return $result;
       		}
         }
