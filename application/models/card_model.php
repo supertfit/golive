@@ -316,14 +316,12 @@
 
 	public function getSentCard($uid)
 	{
-	    $str_sql = "SELECT t1.id, t1.card_type, t1.qrcode, t2.cover_photo_url, t1.created_at
-	                  FROM golive_card t1, golive_ardata t2
-	                 WHERE t1.ardata_id = t2.id
-	                   AND t1.user_id = ?";
+	    $str_sql = "SELECT t1.id, t1.card_type, t1.qrcode, t1.cover_photo_url, t1.created_at
+	                  FROM golive_card t1
+	                 WHERE t1.user_id = ?";
 	    
 	    $ret_array = $this->db->query( $str_sql, $uid )->result();
 	    return $ret_array;
-	    
 	}
 	
 	public function wsAddCard() {
