@@ -377,26 +377,23 @@ class Users_model extends CI_Model {
         $last_name = isset($_POST['lastname']) ? $_POST['lastname'] : '';
         $birthday = isset($_POST['birthday']) ? $_POST['birthday'] : '';
         $photo = isset($_POST['photo']) ? $_POST['photo'] : '';
-
-        $this->common_model->print_log("User ID : $userId");
-        $this->common_model->print_log("First Name : $first_name");
-        $this->common_model->print_log("Last Name : $last_name");
-        $this->common_model->print_log("Birthday : $birthday");
+        $address = isset($_POST['address']) ? $_POST['address'] : '';
+        $gender = isset($_POST['gender']) ? $_POST['gender'] : 'M';
         
         $ptr_date = new DateTime();
         $photoLink = 'profile_'.$this->common_model->GenerateSalt(8)."_".$ptr_date->format('YmdHis').".jpg";
         file_put_contents( ABS_PROFILE_PATH.$photoLink, base64_decode( str_replace(" ", "+", $photo) ) );
         
-        $this->common_model->print_log("Photo : $photoLink");
         $str_sql = 'UPDATE golive_user
                        SET first_name = ?
                          , last_name = ?
                          , birthday = ?
                          , photo = ?
+                         , address = ?
+                         , gender = ?
                          , updated_at = now()
                      WHERE id = ?';
-        $this->common_model->print_log("SQL : $str_sql");
-        $this->db->query($str_sql, array($first_name, $last_name, $birthday, $photoLink, $userId));
+        $this->db->query($str_sql, array($first_name, $last_name, $birthday, $photoLink, $address, $gender, $userId));
         return $result;
     }
     
