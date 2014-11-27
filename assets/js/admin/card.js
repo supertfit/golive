@@ -8,7 +8,7 @@ $(document).ready(function() {
     
     $("#tourist_category_id").change(function() {
         $.ajax({
-            url: "/admin/touristcategory/sub_all",
+            url: "/backend/admin/touristcategory/sub_all",
             dataType : "json",
             type : "POST",
             data : { cid : $(this).val() },

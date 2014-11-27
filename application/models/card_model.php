@@ -257,7 +257,7 @@
                 'error' => '',
                 'markerImage' => HTTP_MARKER_PATH.$ret_array[0]->cover_photo_url,
                 'videoUrl' => HTTP_VIDEO_PATH.$ret_array[0]->prefilm_url,
-                'prefilmUrl' => HTTP_VIDEO_PATH.$ret_array[0]->wsRetrieveVideo_url,
+                'prefilmUrl' => HTTP_VIDEO_PATH.$ret_array[0]->video_url,
                 'targetId' => $ret_array[0]->target_id,
                 'targetType' => $ret_array[0]->target_type
 	        );
@@ -266,8 +266,9 @@
 	        $cardType = $ret_array[0]->card_type;
 	        $videoUrl = HTTP_VIDEO_PATH.$ret_array[0]->video_url;
 	        if ($cardType == '1') {
-	            $markerImage = HTTP_MARKER_PATH.$ret_array[0]->category_cover_photo_url;
+	            $markerImage = HTTP_MARKER_PATH.$ret_array[0]->cover_photo_url;
 	            $prefilmUrl = HTTP_VIDEO_PATH.$ret_array[0]->prefilm_url;
+	            $videoUrl = $prefilmUrl;
 	        } elseif ($cardType == '2') {
 	            $markerImage = HTTP_MARKER_PATH.$ret_array[0]->cover_photo_url;
 	            $prefilmUrl = HTTP_VIDEO_PATH.$ret_array[0]->video_url;
