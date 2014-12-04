@@ -131,7 +131,7 @@
         }
     
         if ($_FILES["coverImage"]['name'] != '') {
-            $ext = pathinfo( $_FILES['coverImage']['name'] )['extension'];
+            $ext = strtolower(pathinfo( $_FILES['coverImage']['name'] )['extension']);
             $cover_photo_url = $this->common_model->GenerateSalt(8)."_".$ptr_date->format('YmdHis').".$ext";
             if (!move_uploaded_file($_FILES['coverImage']['tmp_name'], ABS_MARKER_PATH.$cover_photo_url))
                 $cover_photo_url = '';
